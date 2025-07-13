@@ -73,6 +73,8 @@ header .logo {
   min-height: calc(100vh - 100px);
   padding: 40px 60px;
   background: transparent;
+  margin: 0 auto;                
+  max-width: 1440px;  
 }
 
 /* -------- Sidebar -------- */
@@ -191,6 +193,10 @@ main img {
   user-select: none;
   cursor: default;
   transition: transform 0.35s ease;
+
+  display: block;              
+  margin-left: auto;           
+  margin-right: auto;       
 }
 
 main img:hover {
