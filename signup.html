@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Started with Snoozly</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.auth-tab');
+      const forms = document.querySelectorAll('.auth-form');
+
+      tabs.forEach((tab, idx) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('tabindex', '-1');
+          });
+          forms.forEach(f => f.classList.remove('active'));
+
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          tab.setAttribute('tabindex', '0');
+          forms[idx].classList.add('active');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+<header>
+  <img src="Logo.png" alt="Snoozly Logo" class="logo" />
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="auth-container" aria-label="User Authentication">
+
+    <div class="auth-tabs" role="tablist">
+      <div role="tab" aria-selected="true" tabindex="0" class="auth-tab active" id="tab-signup" aria-controls="signup-form">Sign Up</div>
+      <div role="tab" aria-selected="false" tabindex="-1" class="auth-tab" id="tab-login" aria-controls="login-form">Login</div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <form id="signup-form" class="auth-form active" aria-labelledby="tab-signup" method="POST" action="https://formsubmit.co/aljosian@gmail.com">
+      <h2>Create Account</h2>
+
+      <label for="signup-name">Username</label>
+      <input type="text" id="signup-name" name="username" placeholder="Enter your name" required>
+
+      <label for="signup-email">Email</label>
+      <input type="email" id="signup-email" name="email" placeholder="you@example.com" required>
+
+      <label for="signup-password">Password</label>
+      <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
+
+      <label for="signup-confirm">Confirm Password</label>
+      <input type="password" id="signup-confirm" name="cpassword" placeholder="Re-type password" required>
+
+      <button type="submit">CREATE</button>
+      <p class="auth-link">Already have an Account? <a href="#">Login</a></p>
+    </form>
+
+    <!-- Login Form -->
+    <form id="login-form" class="auth-form" aria-labelledby="tab-login" method="POST" action="https://formsubmit.co/aljosian@gmail.com">
+      <h2>Login</h2>
+
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" name="email" placeholder="you@example.com" required>
+
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" placeholder="Your password" required>
+
+      <button type="submit">LOGIN</button>
+    </form>
+
+  </section>
+</main>
+
+<footer>
+  <img src="Logo.png" alt="Snoozly logo" class="footer-logo" />
+  <div>
+    Developed by Alfredo Jose G. Siangio Jr. - IT Business Analytics |
+    <a href="mailto:aljosian@gmail.com">aljosian@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
